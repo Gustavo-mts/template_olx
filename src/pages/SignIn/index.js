@@ -27,6 +27,12 @@ const Page = () => {
                             <input type="checkbox" />
                         </div>
                     </label>
+                    <label className="area">
+                        <div className="area--title"></div>
+                        <div className="area--input">
+                            <button>Fazer Login</button>
+                        </div>
+                    </label>
                 </form>
             </PageArea>
         </PageContainer>
