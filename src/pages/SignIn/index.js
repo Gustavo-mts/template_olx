@@ -6,7 +6,7 @@ import { PageContainer, PageTitle } from '../../components/MainComponents';
 const Page = () => {
     return (
         <PageContainer>
-            <PageTitle></PageTitle>
+            <PageTitle>Login</PageTitle>
             <PageArea>
                 <form>
                     <label className="area">
