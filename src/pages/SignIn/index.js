@@ -24,7 +24,7 @@ const Page = () => {
                     <label className="area">
                         <div className="area--title">Lembrar senha</div>
                         <div className="area--input">
-                            <input type="checkbox" />
+                            <input className="check" type="checkbox" />
                         </div>
                     </label>
                     <label className="area">
