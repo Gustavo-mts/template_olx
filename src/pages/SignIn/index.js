@@ -44,7 +44,7 @@ const Page = () => {
                             <input 
                                 type="email" 
                                 disabled={disabled}
-                                onChange={()=>setEmail(e.target.value)}
+                                onChange={(e)=>setEmail(e.target.value)}
                                 required 
                             />
                         </div>
@@ -55,7 +55,7 @@ const Page = () => {
                             <input 
                                 type="password" 
                                 disabled={disabled}
-                                onChange={()=>setPassword(e.target.value)}
+                                onChange={(e)=>setPassword(e.target.value)}
                                 required 
                             />
                         </div>
@@ -75,7 +75,7 @@ const Page = () => {
                     <label className="area">
                         <div className="area--title"></div>
                         <div className="area--input">
-                            <button disabled={disabled} >Fazer Login</button>
+                            <button disabled={disabled}>Fazer Login</button>
                         </div>
                     </label>
                 </form>
