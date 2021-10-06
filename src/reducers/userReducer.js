@@ -4,7 +4,7 @@ const initialScale = {
 
 export default (state = initialScale, action) => {
 
-    if(action.type == 'SET_EMAIL') {
+    if(action.type === 'SET_EMAIL') {
         return{...state, email: action.payload.email };
     }
 
