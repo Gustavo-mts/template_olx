@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { PageArea } from './styled';
 import useApi from '../../helpers/OlxApi';
 import { doLogin } from '../../helpers/AuthHandler';
@@ -15,9 +15,19 @@ const Page = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
+    const [stateList, setStateList] = useState([]);
+
     const [disabled, setDisabled] = useState(false);
     const [error, setError] = useState('');
 
+
+    useEffect(()=>{
+        const getState = async () => {
+            const slist = await api.getStates();
+            setStateList(slist);
+        }
+        getState();
+    }, [])
     
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -60,7 +70,10 @@ const Page = () => {
                         <div className="area--title">Estado</div>
                         <div className="area--input">
                             <select value={stateLoc} onChange={e=>setStateLoc(e.target.value)} required>
-                                <options></options>
+                                <option></option>
+                                {stateList.map((i, k) =>
+                                    <option key={k} value={i._id}>{i.name}</option>
+                                )}
                             </select>
                         </div>
                     </label>

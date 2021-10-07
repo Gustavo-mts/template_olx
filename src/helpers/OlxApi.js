@@ -28,7 +28,7 @@ const apiFetchPost = async (endpoint, body) => {
     return json;
 }
 
-const apiFetchGet = async (endpoint, body) => {
+const apiFetchGet = async (endpoint, body=[]) => {
     if(!body.token) {
         let token = Cookies.get('token');
         if(token) {
@@ -54,7 +54,14 @@ const OlxApi = {
             {email, password}
         );
         return json;
+    },
+
+    getStates: async () => {
+        const json = await apiFetchGet(
+            '/states'
+        );
+        return json.states;
     }
-}
+};
 
 export default() => OlxApi;
