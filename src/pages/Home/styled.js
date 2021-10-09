@@ -82,6 +82,10 @@ h2 {
 .list {
     display: flex;
     flex-wrap: wrap;
+
+    .aditem {
+        width: 25%;
+    }
 }
 .seeAllList {
     color: #000;
