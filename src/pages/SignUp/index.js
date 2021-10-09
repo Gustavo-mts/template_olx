@@ -22,26 +22,33 @@ const Page = () => {
 
 
     useEffect(()=>{
-        const getState = async () => {
+        const getStates = async () => {
             const slist = await api.getStates();
             setStateList(slist);
         }
-        getState();
+        getStates();
     }, [])
     
     const handleSubmit = async (e) => {
         e.preventDefault();
         setDisabled(true);
-        /*
-        const json = await api.login(email, password);
+        setError('');
+
+        if(password !== confirmPassword) {
+            setError('As senhas não batem.');
+            setDisabled(false);
+            return;
+        }
+        
+        const json = await api.register(name, email, password, stateLoc);
 
         if(json.error) {
             setError(json.error);
         } else {
-            doLogin(json.token, rememberPassword);
+            doLogin(json.token);
             window.location.href = "/";
         }
-        */
+
         setDisabled(false);
     } 
 
@@ -58,7 +65,7 @@ const Page = () => {
                         <div className="area--title">Nome completo</div>
                         <div className="area--input">
                             <input 
-                                type="email" 
+                                type="text" 
                                 disabled={disabled}
                                 value={name}
                                 onChange={(e)=>setName(e.target.value)}
