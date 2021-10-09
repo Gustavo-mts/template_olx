@@ -18,7 +18,7 @@ export default (props) => {
                     <img src={props.data.image} alt="" />
                 </div>
                 <div className="itemName">{props.data.title}</div>
-                <div className="itemPrice">...</div>
+                <div className="itemPrice">{price}</div>
             </Link>
         </Item> 
     );
