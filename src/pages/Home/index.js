@@ -11,6 +11,7 @@ const Page = () => {
 
     const [stateList, setStateList] = useState([]);
     const [categories, setCategories] = useState([]);
+    const [adsList, setAdsList] = useState([]);
 
     useEffect(()=>{
         const getStates = async() =>{
@@ -26,6 +27,17 @@ const Page = () => {
             setCategories(cats);
         }
         getCategories();
+    }, []);
+
+    useEffect(()=>{
+        const getRecentAds = async() =>{
+            const json = await api.getAds({
+                sort: 'desc',
+                limit: 8
+            });
+            setAdsList(json.ads);
+        }
+        getRecentAds();
     }, []);
 
     return (
@@ -56,7 +68,12 @@ const Page = () => {
 
             <PageContainer>
                 <PageArea>
-                    ...
+                    <h2>Anúncios recentes</h2>
+                    <div className="list">
+                        {adsList.map((i, k) =>
+                            <adItem key={k} data={i} />
+                        )}
+                    </div>
                 </PageArea>
             </PageContainer>
         </>
