@@ -90,5 +90,19 @@ margin-top:20px;
         text-decoration: none;
         margin-bottom: 20px;
     }
+
+    .createdBy
+
+        strong {
+            margin-left: 5px;
+        }
+        
+        small {
+            display: block;
+            color: #999;
+            margin-top: 10px;
+            margin-left: 5px;
+        }
+    }
 }
 `;

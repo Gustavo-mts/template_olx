@@ -88,8 +88,10 @@ const Page = () => {
                         {adInfo.userInfo &&
                             <>
                                 <a href={`mailto:${adInfo.userInfo.email}`} target="_blanck" className="contactSellerLink">Fale conosco</a>
-                                <div className="box box--padding">
-
+                                <div className="createdBy box box--padding">
+                                    <strong>{adInfo.userInfo.name}</strong>
+                                    <small>Email: {adInfo.userInfo.email}</small>
+                                    <small>Estado: {adInfo.stateName}</small>
                                 </div>
                             </>
                         }
