@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { PageArea, Fake } from './styled';
 import { Slide } from 'react-slideshow-image';
+import 'react-slideshow-image/dist/styles.css';
 import { useParams } from 'react-router-dom';
 import useApi from '../../helpers/OlxApi';
 
