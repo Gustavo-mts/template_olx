@@ -66,5 +66,16 @@ margin-top:20px;
 }
 .rightSide {
     width: 250px;
+
+    .price {
+        margin-left: 5px;
+    
+        span {
+            color: #0000ff;
+            display: block;
+            font-size: 27px;
+            font-weight: bold;
+        }
+    }
 }
 `;

@@ -76,6 +76,12 @@ const Page = () => {
                 <div className="rightSide">
                     <div className="box box--padding">
                         {loading && <Fake height={20}/>}
+                        {adInfo.priceNegotiable &&
+                            'Preço Negociável'
+                        }
+                        {!adInfo.priceNegotiable && adInfo &&
+                            <div className="price">Preço: <span>${adInfo.price}</span></div>
+                        }
                     </div>
                     <div className="box box--padding">
                         {loading && <Fake height={50}/>}
