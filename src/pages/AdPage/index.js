@@ -83,9 +83,16 @@ const Page = () => {
                             <div className="price">Preço: <span>${adInfo.price}</span></div>
                         }
                     </div>
-                    <div className="box box--padding">
+                    
                         {loading && <Fake height={50}/>}
-                    </div>   
+                        {adInfo.userInfo &&
+                            <>
+                                <a href={`mailto:${adInfo.userInfo.email}`} target="_blanck" className="contactSellerLink">Fale conosco</a>
+                                <div className="box box--padding">
+
+                                </div>
+                            </>
+                        }
                 </div>
             </PageArea>
         </PageContainer>
