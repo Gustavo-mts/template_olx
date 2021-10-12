@@ -31,7 +31,7 @@ const Page = () => {
         let cMonth = cDate.getMonth();
         let cYear = cDate.getFullYear();
 
-        return `${cDay} de ${cMonth} de ${cYear}`; 
+        return `${cDay} de ${months[cMonth]} de ${cYear}`; 
     }
 
     return (
