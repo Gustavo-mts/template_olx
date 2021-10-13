@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import { PageArea, Fake } from './styled';
+import { PageArea, Fake, OthersArea } from './styled';
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 import { useParams } from 'react-router-dom';
 import useApi from '../../helpers/OlxApi';
 
 import { PageContainer } from '../../components/MainComponents';
+import AdItem from '../../components/partials/AdItem';
 
 
 const Page = () => {
@@ -97,6 +98,18 @@ const Page = () => {
                         }
                 </div>
             </PageArea>
+            <OthersArea>
+                {adInfo.others &&
+                    <>
+                        <h2>Outras ofertas do vendedor</h2>
+                        <div className="list">
+                            {adInfo.others.map((i, k)=>
+                                <AdItem key={k} data={i} />
+                            )}
+                        </div>
+                    </>
+                }
+            </OthersArea>
         </PageContainer>
     );
 }

@@ -106,3 +106,16 @@ margin-top:20px;
     }
 }
 `;
+
+export const OthersArea = styled.div`
+h2 {
+    font-size: 20px;
+}
+.list {
+    display: flex;
+
+    .aditem {
+        width: 25%;
+    }
+}
+`;
