@@ -119,3 +119,15 @@ h2 {
     }
 }
 `;
+
+export const BreadChumb = styled.div`
+font-size:13px;
+margin-top:20px;
+
+a {
+    display: inline-block;
+    margin: 0px 5px;
+    text-decoration:underline;
+    color: #000;
+}
+`;

@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import { PageArea, Fake, OthersArea } from './styled';
+import { PageArea, Fake, OthersArea, BreadChumb} from './styled';
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import useApi from '../../helpers/OlxApi';
 
 import { PageContainer } from '../../components/MainComponents';
@@ -38,7 +38,18 @@ const Page = () => {
 
     return (
         <PageContainer>
-            <PageArea>
+            {adInfo.category &&
+                <BreadChumb>
+                    Você está aqui:
+                    <Link to="/">Home</Link>
+                    /
+                    <Link to={`/ads?state=${adInfo.stateName}`}>{adInfo.stateName}</Link>
+                    /
+                    <Link to={`/ads?state=${adInfo.stateName}&cat=${adInfo.category.slug}`}>{adInfo.category.name}</Link>
+                    /  {adInfo.title}
+                </BreadChumb>
+            }
+            <PageArea> 
                 <div className="leftSide">
                     <div className="box">
                         <div className="adImage">
