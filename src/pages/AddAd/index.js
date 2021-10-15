@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import { PageArea } from './styled';
 import useApi from '../../helpers/OlxApi';
 import { doLogin } from '../../helpers/AuthHandler';
@@ -9,6 +9,7 @@ import { PageContainer, PageTitle, ErrorMessage } from '../../components/MainCom
 const Page = () => {
     const api = useApi();
     const fileField = useRef();
+    const [categories, setCategories] = useState([]);
 
     const [title, setTitle] = useState('');
     const [category, setCategory] = useState('');
@@ -18,6 +19,14 @@ const Page = () => {
 
     const [disabled, setDisabled] = useState(false);
     const [error, setError] = useState('');
+
+    useEffect(()=>{
+        const getCategories = async () => {
+            const cats = await api.getCategories();
+            setCategories(cats);
+        }
+        getCategories();
+    },[])
  
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -60,7 +69,16 @@ const Page = () => {
                     <label className="area">
                         <div className="area--title">Categoria</div>
                         <div className="area--input">
-                            <select></select>
+                            <select
+                                disabled={disabled}
+                                onChange={e=>setCategory(e.target.value)}
+                                required
+                            >
+                                <option></option>
+                                {categories && categories.map(i=>
+                                    <option key={i._id} value={i._id}>{i.name}</option>
+                                )}
+                            </select>
                         </div>
                     </label>
                     <label className="area">
@@ -73,6 +91,7 @@ const Page = () => {
                         <div className="area--title">Preço Negociável</div>
                         <div className="area--input">
                             <input
+                                className="check"
                                 type="checkbox"
                                 disabled={disabled}
                                 checked={priceNegotiable}

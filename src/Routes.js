@@ -30,7 +30,7 @@ export default () => {
                 <AdPage/>
             </RouteHandler>
             <RouteHandler private exact path="/post-an-ad">
-                <NotFound/>
+                <AddAd/>
             </RouteHandler>
             <RouteHandler>
                 <NotFound/>
