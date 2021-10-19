@@ -1,8 +1,8 @@
 import React, {useState, useEffect, useRef} from 'react';
 import { PageArea } from './styled';
 import useApi from '../../helpers/OlxApi';
-import { doLogin } from '../../helpers/AuthHandler';
-
+import MaskedInput from 'react-text-mask';
+import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 import { PageContainer, PageTitle, ErrorMessage } from '../../components/MainComponents';
 
 
@@ -45,6 +45,14 @@ const Page = () => {
         setDisabled(false);
     }
 
+    const priceMask = createNumberMask({
+        prefix: 'R$ ',
+        includeThousandsSeparator: true,
+        thousandsSeparatorSymbol: '.',
+        allowDecimal: true,
+        decimalSymbol:'.'
+    })
+
     return (
         <PageContainer>
             <PageTitle>Postar um anúncio</PageTitle>
@@ -84,7 +92,13 @@ const Page = () => {
                     <label className="area">
                         <div className="area--title">Preço</div>
                         <div className="area--input">
-                            ...
+                            <MaskedInput
+                                mask={priceMask}
+                                placeholder="R$ "
+                                disabled={disabled || priceNegotiable}
+                                value={price}
+                                onChange={e=>setPrice(e.target.value)}
+                            />
                         </div>
                     </label>
                     <label className="area">
