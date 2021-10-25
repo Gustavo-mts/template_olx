@@ -1,20 +1,19 @@
-# Ongoing Project  🛠⚙️
+# Template Olx 
 
-## Getting Started with Create React App
+## Em Construção ⚠️
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Tecnologias utilizadas
+<div>
+<a href="https://redux.js.org/" target="_blank">
+  <img width="50px" height="70px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" />
+</a>
+<a href="https://pt-br.reactjs.org/" target="_blank">
+  <img width="50px" height="70px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />
+</a>
+  
+</div>
 
-## Available Scripts
 
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
 <!--
 ### `Layout for Desktop`
