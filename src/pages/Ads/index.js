@@ -45,7 +45,26 @@ const Page = () => {
         <PageContainer>
             <PageArea>
                 <div className="leftSide">
-                    ...
+                    <form method="GET">
+                        <input type="text" name="q" />
+
+                        <div className="filterName">Estado:</div>
+                        <select name="state">
+                            <option></option>
+                                {stateList.map((i, k)=>
+                                    <option key={k} value={i.name}>{i.name}</option>
+                                )}
+                        </select>
+
+                        <div className="filterName">Categoria:</div>
+                        <ul>
+                            {categories.map((i, k)=>
+                                <li key={k} className="categoryItem">
+                                    <img src={i.img} alt="" />
+                                </li>
+                            )}
+                        </ul>
+                    </form>
                 </div>
                 <div className="rightSide">
                     ....
