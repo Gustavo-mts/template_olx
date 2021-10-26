@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useRef} from 'react';
 import { PageArea } from './styled';
 import useApi from '../../helpers/OlxApi';
+import { useHistory } from 'react-router-dom';
 import MaskedInput from 'react-text-mask';
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 import { PageContainer, PageTitle, ErrorMessage } from '../../components/MainComponents';
@@ -8,6 +9,7 @@ import { PageContainer, PageTitle, ErrorMessage } from '../../components/MainCom
 
 const Page = () => {
     const api = useApi();
+    const history = useHistory();
     const fileField = useRef();
     const [categories, setCategories] = useState([]);
 
@@ -32,17 +34,42 @@ const Page = () => {
         e.preventDefault();
         setDisabled(true);
         setError('');
-        /*
-        const json = await api.login(email, password);
+        let erros = [];
 
-        if(json.error) {
-            setError(json.error);
+        if(!title.trim()) {
+            erros.push("Sem título.");
+        }
+
+        if(!category) {
+            erros.push('Sem categoria.')
+        }
+
+        if(erros.lenght === 0) {
+            const fData = new FormData();
+            fData.append('title', title);
+            fData.append('price', price);
+            fData.append('priceneg', priceNegotiable);
+            fData.append('desc', desc);
+            fData.append('cat', category);
+
+            if(fileField.current.files.lenght > 0) {
+                for(let i=0;i<fileField.current.files.lenght; i++) {
+                    fData.append('img',fileField.current.files[i]);
+                }
+            }
+
+            const json = await api.addAd(fData);
+
+            if(!json.error) {
+                history.push(`/ad/${json.id}`);
+                return;
+            } else {
+                setError(json.error);
+            }
+
         } else {
-            doLogin(json.token, rememberPassword);
-            window.location.href = "/";
-        }*/
-
-        setDisabled(false);
+            setError(erros.join('\n'));
+        }
     }
 
     const priceMask = createNumberMask({
