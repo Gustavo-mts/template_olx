@@ -27,8 +27,10 @@ const Page = () => {
     const [adsList, setAdsList] = useState([]);
 
     const [resultOpacity, setResultOpacity] = useState(1);
+    const [loading, setLoading] = useState(true);
 
     const getRecentAds = async() =>{
+        setLoading(true);
         const json = await api.getAds({
             sort: 'desc',
             limit: 9, 
@@ -38,6 +40,7 @@ const Page = () => {
         });
         setAdsList(json.ads);
         setResultOpacity(1);
+        setLoading(false);
     }
 
     useEffect(()=>{
@@ -119,6 +122,12 @@ const Page = () => {
                     </form>
                 </div>
                 <div className="rightSide">
+                    {loading &&
+                        <div className="listWarning">Carrregando...</div>
+                    }
+                    {!loading && adsList.length === 0 &&
+                    <div className="listWarning">Não encontramos resultados.</div>
+                    }
                     <h2>Resultados</h2>
                     <div className="list" style={{opacity: resultOpacity}}>
                         {adsList.map((i, k) =>
