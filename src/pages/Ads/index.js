@@ -15,6 +15,7 @@ const Page = () => {
     }
 
     const query = useQueryString(); 
+    const history = useHistory();
 
     const [q, setQ] = useState(query.get('q') !== null ? query.get('q') : '');
     const [cat, setCat] = useState(query.get('cat') !== null ? query.get('cat') : '');
@@ -23,6 +24,22 @@ const Page = () => {
     const [stateList, setStateList] = useState([]);
     const [categories, setCategories] = useState([]);
     const [adsList, setAdsList] = useState([]);
+
+    useEffect(()=>{
+        let queryString = [];
+        if(q) {
+            queryString.push(`q${q}`);
+        }
+        if(cat) {
+            queryString.push(`cat${cat}`);
+        }
+        if(state) {
+            queryString.push(`state${state}`);
+        }
+        history.replace({
+            search:`?${queryString.join('&')}`
+        })
+    }, [q, cat, state]);
 
     useEffect(()=>{
         const getStates = async() =>{
@@ -61,12 +78,14 @@ const Page = () => {
                             name="q" 
                             value={q}
                             placeholder="O quê você procura?"
+                            onChange={e=>setQ(e.target.value)}
                         />
 
                         <div className="filterName">Estado:</div>
                         <select
                             name="state"
                             value={state}
+                            onChange={e=>setState(e.target.value)}
                         >
                             <option></option>
                                 {stateList.map((i, k)=>
@@ -77,7 +96,11 @@ const Page = () => {
                         <div className="filterName">Categoria:</div>
                         <ul>
                             {categories.map((i, k)=>
-                                <li key={k} className={cat==i.slug?`categoryItem active`:`categoryItem`}>
+                                <li 
+                                    key={k} 
+                                    className={cat==i.slug?`categoryItem active`:`categoryItem`}
+                                    onClick={()=>setCat(i.slug)}    
+                                >
                                     <img src={i.img} alt="" />
                                     {i.name}
                                 </li>
