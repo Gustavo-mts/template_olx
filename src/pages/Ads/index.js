@@ -165,7 +165,9 @@ const Page = () => {
 
                     <div className="pagination">
                         {pagination.map((i, k) =>
+                        {
                             <div onClick={()=>setCurrentPage(i)} className={i===currentPage?'pagItem active':'pagItem'} key={k}>{i}</div>
+                        }
                         )}
                     </div>
                 </div>
