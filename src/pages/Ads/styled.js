@@ -73,6 +73,25 @@ margin-top: 20px;
 
         .aditem {
             width: 33%;
+            max-width: 250px;
+        }
+    }
+
+    .pagination {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10px;
+
+        .pagItem {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     }
 }
