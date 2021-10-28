@@ -82,6 +82,7 @@ margin-top: 20px;
         align-items: center;
         justify-content: center;
         margin: 10px;
+        flex-wrap: wrap;
 
         .pagItem {
             width: 30px;
@@ -90,8 +91,16 @@ margin-top: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            cursor: pointer;
+
+            &:hover {
+                border: 1px solid #999;
+            }
+
+            &.active {
+                background-color: #ddd;
+            }
+            
         }
     }
 }
