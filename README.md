@@ -17,4 +17,4 @@
 ## Visulização do template
 
 > Layout for Desktop
-![Desktop](https://github.com/Gustavo-mts/projeto_olx/blob/main/frontend/projeto_olx.gif)
+![Desktop]('https://github.com/Gustavo-mts/projeto_olx/blob/main/frontend/projeto_olx.gif')
