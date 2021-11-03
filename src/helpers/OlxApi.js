@@ -139,6 +139,14 @@ const OlxApi = {
             fData
         );
         return json;
+    }, 
+
+    getUser: async (cToken) => {
+        const json = await apiFetchGet(
+            '/user/me',
+            {cToken}
+        );
+        return json;
     }
 };
 
