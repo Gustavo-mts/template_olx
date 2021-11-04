@@ -7,9 +7,6 @@ import { PageContainer, PageTitle, ErrorMessage } from '../../components/MainCom
 
 const Page = () => {
     const api = useApi();
-
-    const [user, setUser] = useState([]);
-
     const [name, setName] = useState('');
     const [state, setState] = useState('');
     const [email, setEmail] = useState('');
@@ -21,6 +18,14 @@ const Page = () => {
     const [error, setError] = useState('');
     const [disabled, setDisabled] = useState(false);
 
+    useEffect(()=>{
+        const getStates = async () => {
+            const slist = await api.getStates();
+            setStateList(slist);
+        }
+        getStates();
+    }, [])
+    
     useEffect(()=>{
         const getUser = async () => {
             const sUser = await api.getUser();

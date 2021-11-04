@@ -62,7 +62,7 @@ const apiFetchPut = async (endpoint, body) => {
     const json = await res.json();
 
     if(json.notallowed) {
-        window.location.href = '/singin';
+        window.location.href = '/my-account';
         return;
     }
 
