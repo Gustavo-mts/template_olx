@@ -23,6 +23,7 @@ const apiFetchFile = async (endpoint, body) => {
 
     return json;
 }
+
 const apiFetchPost = async (endpoint, body) => {
     if(!body.token) {
         let token = Cookies.get('token');
@@ -57,7 +58,11 @@ const apiFetchPut = async (endpoint, body) => {
     }
      const res = await fetch(BASEAPI+endpoint, {
         method:'PUT',
-        body
+        headers: {
+            'Content-Type':'application/json',
+            'cache-controls': 'no-cache'
+        },
+        body: JSON.stringify(body)
     });
     const json = await res.json();
 

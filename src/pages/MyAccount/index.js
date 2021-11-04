@@ -3,7 +3,7 @@ import { PageArea } from './styled';
 import useApi from '../../helpers/OlxApi';
 import { doLogin } from '../../helpers/AuthHandler';
 
-import { PageContainer, PageTitle, ErrorMessage } from '../../components/MainComponents';
+import { PageContainer, PageTitle } from '../../components/MainComponents';
 
 const Page = () => {
     const api = useApi();
