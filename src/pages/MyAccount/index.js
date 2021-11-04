@@ -41,7 +41,6 @@ const Page = () => {
             setError(json.error);
         } else {
             doLogin(json.token);
-            window.location.href = "/my-account";
         }
 
         setDisabled(false);
