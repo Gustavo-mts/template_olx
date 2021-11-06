@@ -32,11 +32,7 @@ form {
         .area--input {
             flex: 1;
             border: 1px solid #999;
-            display: flex;
-            justify-content: space-between;
             border: none;
-            
-            
 
             input {
                 width: 100%;

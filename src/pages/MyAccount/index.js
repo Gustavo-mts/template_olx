@@ -18,7 +18,7 @@ const Page = () => {
     const [stateList, setStateList] = useState([]);
 
     const [error, setError] = useState('');
-    const [disabled, setDisabled] = useState(false);
+    const [disabled, setDisabled] = useState(true);
 
     useEffect(()=>{
         const getStates = async () => {
@@ -33,6 +33,8 @@ const Page = () => {
             const sUser = await api.getUser();
             console.log(sUser);
             setName(sUser.name)
+            setEmail(sUser.email);
+            setState(sUser.state);
         }
         getUser();
     }, []);
@@ -61,7 +63,17 @@ const Page = () => {
 
     return (
         <PageContainer>
-            <PageTitle>Editar meus dados</PageTitle>
+            <PageTitle>
+                Editar meus dados
+                <EditIcon 
+                    style={{
+                        color: '#999',
+                        marginLeft: '25px',
+                        cursor: 'pointer'
+                    }}
+                    onClick={()=>setDisabled(!disabled)}
+                />    
+            </PageTitle>            
             <PageArea>
                 {error &&
                     <ErrorMessage>{error}</ErrorMessage>
@@ -73,14 +85,10 @@ const Page = () => {
                             <div className="area--input">
                                 <input 
                                     type="text" 
-                                    disabled={disabled}
                                     value={name}
                                     onChange={(e)=>setName(e.target.value)}
                                     placeholder="Digite seu novo nome"
-                                />
-                                <EditIcon 
-                                    style={{color: '#999'}}
-                                    //onClick={}
+                                    disabled={disabled}                                   
                                 />
                             </div>
                         </label>
@@ -94,7 +102,6 @@ const Page = () => {
                                         <option key={k} value={i._id}>{i.name}</option>
                                     )}
                                 </select>
-                                <EditIcon style={{color: '#999'}}/>
                             </div>
                         </label>
                         <label className="area">
@@ -108,7 +115,6 @@ const Page = () => {
                                     onChange={(e)=>setEmail(e.target.value)}
                                     placeholder="Digite seu novo e-mail"
                                 />
-                                <EditIcon style={{color: '#999'}}/>
                             </div>
                         </label>
                         <label className="area">
@@ -122,7 +128,6 @@ const Page = () => {
                                     onChange={(e)=>setPassword(e.target.value)}
                                     placeholder="Digite sua nova senha"
                                 />
-                                <EditIcon style={{color: '#999'}}/>
                             </div>
                         </label>
                         <label className="area">
@@ -139,7 +144,6 @@ const Page = () => {
                                         background: 'transparent'
                                     }}
                                 />
-                                <EditIcon style={{color: '#999'}}/>
                             </div>
                         </label>
                         <label className="area">
