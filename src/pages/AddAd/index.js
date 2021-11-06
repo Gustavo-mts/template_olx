@@ -44,7 +44,7 @@ const Page = () => {
             erros.push('Sem categoria.')
         }
 
-        if(erros.lenght === 0) {
+        if(erros.length === 0) {
             const fData = new FormData();
             fData.append('title', title);
             fData.append('price', price);
@@ -57,7 +57,7 @@ const Page = () => {
                     fData.append('img',fileField.current.files[i]);
                 }
             }
-
+            console.log('ola');
             const json = await api.addAd(fData);
 
             if(!json.error) {
