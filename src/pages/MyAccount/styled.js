@@ -31,19 +31,23 @@ form {
 
         .area--input {
             flex: 1;
+            border: 1px solid #999;
+            display: flex;
+            justify-content: space-between;
+            border: none;
+            
+            
 
             input {
                 width: 100%;
                 font-size: 14px;
                 padding: 5px;
-                border: 1px solid #ddd;
-                border-radiuis: 3px;
+                border: none;
                 outline: 0;
                 transition: all ease 0.4s;
 
                 &:focus {
-                    border: 1px solid #333;
-                    color: #333;
+                    outline: none;
                 }
 
                 &:[type="checkbox"] {

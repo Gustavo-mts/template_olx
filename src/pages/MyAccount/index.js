@@ -3,6 +3,8 @@ import { PageArea } from './styled';
 import useApi from '../../helpers/OlxApi';
 import { doLogin } from '../../helpers/AuthHandler';
 
+import EditIcon from '@mui/icons-material/Edit';
+
 import { PageContainer, PageTitle, ErrorMessage } from '../../components/MainComponents';
 
 const Page = () => {
@@ -76,6 +78,10 @@ const Page = () => {
                                     onChange={(e)=>setName(e.target.value)}
                                     placeholder="Digite seu novo nome"
                                 />
+                                <EditIcon 
+                                    style={{color: '#999'}}
+                                    //onClick={}
+                                />
                             </div>
                         </label>
                         <label className="area">
@@ -88,6 +94,7 @@ const Page = () => {
                                         <option key={k} value={i._id}>{i.name}</option>
                                     )}
                                 </select>
+                                <EditIcon style={{color: '#999'}}/>
                             </div>
                         </label>
                         <label className="area">
@@ -101,6 +108,7 @@ const Page = () => {
                                     onChange={(e)=>setEmail(e.target.value)}
                                     placeholder="Digite seu novo e-mail"
                                 />
+                                <EditIcon style={{color: '#999'}}/>
                             </div>
                         </label>
                         <label className="area">
@@ -114,6 +122,7 @@ const Page = () => {
                                     onChange={(e)=>setPassword(e.target.value)}
                                     placeholder="Digite sua nova senha"
                                 />
+                                <EditIcon style={{color: '#999'}}/>
                             </div>
                         </label>
                         <label className="area">
@@ -125,8 +134,12 @@ const Page = () => {
                                     value={confirmPassword}
                                     onChange={e=>setConfirmPassword(e.target.value)}
                                     placeholder="Confirme seu novo e-mail"
-                                    style={{marginLeft: '5px'}}
+                                    style={{
+                                        marginLeft: '5px', 
+                                        background: 'transparent'
+                                    }}
                                 />
+                                <EditIcon style={{color: '#999'}}/>
                             </div>
                         </label>
                         <label className="area">
