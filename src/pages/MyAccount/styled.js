@@ -73,3 +73,25 @@ form {
     }
 }
 `;
+
+export const AdArea = styled.div`
+background-color: #fff;
+border-radius: 3px;
+padding: 10px;
+box-shadow: 0px 0px 3px #999;
+display: flex;
+
+.myAds {
+    width: 33%;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .myAds--image {
+        width: 70%;
+        height:200px;
+        background-color: #ccc;
+    }
+
+`;
