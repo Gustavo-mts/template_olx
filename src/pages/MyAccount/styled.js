@@ -92,6 +92,7 @@ display: flex;
         width: 70%;
         height:200px;
         background-color: #ccc;
+        border-radius: 3%;
     }
 
 `;

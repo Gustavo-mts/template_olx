@@ -6,6 +6,8 @@ import { doLogin } from '../../helpers/AuthHandler';
 import EditIcon from '@mui/icons-material/Edit';
 
 import { PageContainer, PageTitle, ErrorMessage } from '../../components/MainComponents';
+import MyAds from '../MyAds';
+
 
 const Page = () => {
     const api = useApi();
@@ -175,9 +177,9 @@ const Page = () => {
                             }
                         </div>
                     )}
-                
                 </AdArea>
             </PageContainer>
+            <MyAds />
         </>
     );
 }
