@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { PageArea , AdArea, AdItem} from './styled';
+import { PageArea , AdArea, AdItem, StyledAds} from './styled';
 import useApi from '../../helpers/OlxApi';
 import { doLogin } from '../../helpers/AuthHandler';
 
@@ -22,6 +22,8 @@ const Page = () => {
 
     const [error, setError] = useState('');
     const [disabled, setDisabled] = useState(true);
+
+    const [modal, setModal] = useState(false);
 
     useEffect(()=>{
         const getStates = async () => {
@@ -64,6 +66,10 @@ const Page = () => {
 
         setDisabled(false);
     } 
+
+    const handleStyle = () => {
+        setModal(true);
+    }
 
     return (
         <>
@@ -164,7 +170,7 @@ const Page = () => {
                 <PageTitle>Meus Anúncios</PageTitle>
                 <AdArea>
                     {ads.map((i, k) =>
-                        <div key={k} className="myAds">
+                        <div key={k} className="myAds" onClick={handleStyle}>
                             <div className="myAds--image">
                                 <img src={i.images[i]} />
                             </div>
@@ -178,8 +184,12 @@ const Page = () => {
                         </div>
                     )}
                 </AdArea>
+
+                {modal &&
+                    <MyAds/>
+                }
+                
             </PageContainer>
-            <MyAds />
         </>
     );
 }

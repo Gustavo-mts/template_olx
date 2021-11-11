@@ -1,5 +1,7 @@
 import React from 'react';
-import { PgeArea } from './styled';
+import { PageArea } from './styled';
+
+import {PageContainer} from '../../components/MainComponents';
 
 
 const Page = () => {
@@ -7,7 +9,11 @@ const Page = () => {
 
     return (
         <>
-           ...
+           <PageArea>
+               <PageContainer style={{backgroundColor: '#fff'}}>
+                   ...
+               </PageContainer>
+           </PageArea>
         </>
     );
 }
