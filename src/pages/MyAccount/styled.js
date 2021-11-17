@@ -96,3 +96,20 @@ display: flex;
     }
 
 `;
+
+
+export const Modal = styled.div`
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .ads--image {
+        width: 30vw;
+        height: 50vh;
+        background-color: #ccc;
+        margin-top: 20px;
+    }
+}
+`;

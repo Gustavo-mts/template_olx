@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import { PageArea , AdArea, AdItem, StyledAds} from './styled';
+import { PageArea , AdArea, AdItem, StyledAds, Modal} from './styled';
 import useApi from '../../helpers/OlxApi';
 import { doLogin } from '../../helpers/AuthHandler';
+import { Slide } from 'react-slideshow-image';
+import 'react-slideshow-image/dist/styles.css';
 
 import EditIcon from '@mui/icons-material/Edit';
 
@@ -24,6 +26,8 @@ const Page = () => {
     const [disabled, setDisabled] = useState(true);
 
     const [modal, setModal] = useState(false);
+
+    const [adsClicked, setAdsClicked] = useState([]);
 
     useEffect(()=>{
         const getStates = async () => {
@@ -186,7 +190,35 @@ const Page = () => {
                 </AdArea>
 
                 {modal &&
-                    <MyAds/>
+                    <PageArea>
+                    <PageContainer style={{backgroundColor: 'rgba(0, 0, 0, 0.5)'}}>
+                        <Modal>
+                            <div className="box">
+                                <div className="ads--image">
+                                    <img src="" alt="" />
+                                </div>
+                                <div className="ads--title">
+                                    <h2>Title</h2>
+                                </div>
+                                <div className="ads--description">
+                                    <h2>Descrição</h2>
+                                </div>
+                                <div className="ads--status">
+                                    <select>
+                                        <option>SP</option>
+                                        <option></option>
+                                    </select>
+                                </div>
+                                <div className="ads--category">
+                                    <p>Category</p>
+                                </div>
+                                <div className="preço">
+                                    <p>Preço</p>    
+                                </div>
+                            </div>
+                        </Modal>
+                    </PageContainer>
+                </PageArea>
                 }
                 
             </PageContainer>
