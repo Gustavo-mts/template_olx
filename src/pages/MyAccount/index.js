@@ -198,7 +198,7 @@ const Page = () => {
             }
                 {modal &&
                     <PageArea>
-                    <PageContainer style={{backgroundColor: 'red', height: '120vh', opacity: '1'}}>
+                    <PageContainer style={{height: '100vh'}}>
                         <Modal>
                             <div className="box">
                                 <div className="ads--image">
