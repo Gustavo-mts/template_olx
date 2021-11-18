@@ -99,6 +99,10 @@ display: flex;
 
 
 export const Modal = styled.div`
+display: block;
+z-index: 99;
+background-color: red;
+opacity: 1;
 .box {
     display: flex;
     flex-direction: column;
